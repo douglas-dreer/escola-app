@@ -1,20 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Person } from '../model/person';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonsService {
+export class PersonsService  {
 
   constructor(private httpClient:HttpClient) { }
 
   private readonly API = 'http://localhost:8080/api/v1/persons';
 
-  Lista(){
+  getAll(){
     return this.httpClient.get<Person[]>(this.API).pipe(tap(persons=>console.log(persons)));
   }
+
 
 }
 
