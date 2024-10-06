@@ -1,0 +1,8 @@
+@use "./app/layout/layout-component.theme" ;
+@use "@angular/material" as mat;
+
+$theme: mat.define-theme();
+
+:root {
+  @include layout-component.theme($theme);
+}
